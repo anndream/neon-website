@@ -56,7 +56,7 @@ As you can see, `unaccent()` effectively strips the diacritics, transforming wor
 
 `unaccent` is most commonly used to enhance text searching, making it more forgiving and user-friendly. Let's explore some typical use cases:
 
-### Basic Accent-Insensitive searching
+### Basic accent-insensitive searching
 
 Imagine you have a product catalog and want users to be able to search for products regardless of whether they use accents or not. For instance, a user might search for "cafe" or "café" and expect to find products containing "café".
 
@@ -110,7 +110,7 @@ id | name
  2 | café
  ```
 
-### Case-Insensitive and Accent-Insensitive searching with `ILIKE`
+### Case-insensitive and accent-insensitive searching with `ILIKE`
 
 For even more flexible searching, you can combine `unaccent()` with the [`ILIKE`](/postgresql/postgresql-tutorial/postgresql-like#postgresql-extensions-of-the-like-operator) operator for case-insensitive and accent-insensitive searches.  This is particularly useful for free-text search scenarios.
 
@@ -129,7 +129,7 @@ id | name
 
 In this example, `ILIKE` handles case-insensitivity (matching 'cafe', 'Cafe', etc.), and `unaccent()` ensures that accents are ignored during the comparison. Applying `unaccent()` to both sides of the `ILIKE` condition is crucial for this to work effectively.
 
-### Integration with Full-Text search
+### Integration with full-text search
 
 While `unaccent()` can be used directly in `WHERE` clauses, its true power for search applications is realized when integrated into with Postgres full-text search capabilities. `unaccent` is designed as a text search dictionary. By incorporating it into your text search configurations, you can ensure that indexing and searching operations automatically handle accent removal.
 
@@ -139,7 +139,7 @@ This involves creating or modifying text search configurations to include the `u
 It's important to note that because `unaccent` is managed by Neon, modifying the default `unaccent.rules` file or other configuration settings requires administrative privileges that are not available to Neon users.  If you have specific needs for customized `unaccent` rules or configurations, please [open a support ticket](https://console.neon.tech/app/projects?modal=support) to discuss your requirements with Neon support.
 </Admonition>
 
-## Performance and Indexing Considerations
+## Performance and indexing considerations
 
 Using `unaccent()` in queries can have performance implications, especially in large tables. Applying functions in `WHERE` clauses often prevents the database from efficiently using standard indexes.
 

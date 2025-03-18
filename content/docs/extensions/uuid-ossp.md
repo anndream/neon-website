@@ -29,11 +29,11 @@ Please refer to the [list of all extensions](/docs/extensions/pg-extensions) ava
 
 The current version of the `uuid-ossp` extension in Neon is `1.1`.
 
-## UUID Functions
+## UUID functions
 
 The `uuid-ossp` extension offers a range of functions for generating UUIDs, each with unique characteristics. Let's explore each function in detail:
 
-### Version 1 UUIDs (Time-Based)
+### Version 1 UUIDs (time-based)
 
 The version 1 UUID generation functions in `uuid-ossp` are based on the time of creation and the MAC address of the generating machine. These UUIDs are suitable for scenarios where time-based ordering is important, and uniqueness across distributed systems is required.
 
@@ -65,7 +65,7 @@ The version 1 UUID generation functions in `uuid-ossp` are based on the time of 
   -- 8b119520-02ff-11f0-9d55-6761ef62a796 (example output)
   ```
 
-### Version 3 UUIDs (Name-Based, MD5 Hash)
+### Version 3 UUIDs (name-based, MD5 hash)
 
 - `uuid_generate_v3(namespace uuid, name text)`:
 
@@ -86,7 +86,7 @@ The version 1 UUID generation functions in `uuid-ossp` are based on the time of 
   - Scenarios where you need to ensure that generating a UUID for the same entity (identified by name within a namespace) always results in the same UUID across different systems or over time.
   - Content Management Systems where stable identifiers for content pieces are required, regardless of access time or location.
 
-### Version 4 UUIDs (Random)
+### Version 4 UUIDs (random)
 
 - `uuid_generate_v4()`:
 
@@ -110,7 +110,7 @@ The version 1 UUID generation functions in `uuid-ossp` are based on the time of 
   - Simplifying UUID generation when deterministic or time-based approaches are not necessary.
 
 
-### Version 5 UUIDs (Name-Based, SHA-1 Hash)
+### Version 5 UUIDs (name-based, SHA-1 hash)
 
 - `uuid_generate_v5(namespace uuid, name text)`:
 
@@ -125,7 +125,7 @@ The version 1 UUID generation functions in `uuid-ossp` are based on the time of 
   While both Version 3 and Version 5 provide deterministic, name-based UUIDs, Version 5 is generally recommended due to the use of SHA-1 hashing, which is considered more secure than MD5. If security is a significant concern for your application, Version 5 is the better choice.
   </Admonition>
 
-### UUID Constants
+### UUID constants
 
 `uuid-ossp` also provides functions to return predefined UUID constants, which are particularly useful as standard namespace identifiers for Version 3 and Version 5 UUID generation:
 
